@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>math master</title>
+<meta charset="utf8" >
+<link rel="stylesheet" href="bootstrap.css">
+</head>
+<body class="bg-light" >
+<h1 class="text-center text-info text-capitalize shadow py-2 " >math master</h1>
+<div class=" col text-center my-2" style="border-radius:50%;width:20pz; height:20px"  ><h4> scoure: <span id="my_scr" class="text-success" ></span> / <span id="t_scr" class="text-info"  ></span></h4></div>
+<div class="form-group mx-2" >
+<label>eq:</label>
+<input id="eq" type="text" class="form-control text-center text-primary text-bold" value=""  disabled="disabled" style="font-size:20px"  >
+</div>
+<div class="form-group mx-2" >
+ans: 
+<input type="number" class="form-control text-center text-primary text-lg text-bold" id="my_ans" placeholder="your ans"  value=""  >
+</div>
+<div class="form-group mx-2" >
+<button onclick="check()" class="btn btn-success btn-block" >Go</button>
+</div>
+
+<script type="text/javascript">
+var my_src = 0;
+var t_src = 10;
+var s_eq="";
+var num=[1,2,3,4,5,6,7,8,9,0];
+var sign="+*-";
+
+init = () =>{
+
+document.getElementById("my_scr").innerText=my_src;
+document.getElementById("t_scr").innerText=t_src;
+
+s_eq = (num[Math.floor( (Math.random() * num.length))]);
+s_eq += sign[Math.floor( (Math.random() * sign.length))];
+s_eq +=  (num[Math.floor( (Math.random() * num.length))]);
+document.getElementById("eq").value=s_eq;
+
+}
+
+check = ()=>{
+var g_eq = document.getElementById("eq").value;
+var my_ans = document.getElementById("my_ans").value;
+
+if(eval(g_eq) == my_ans){
+my_src += 1;
+document.getElementById("my_ans").value="";
+document.getElementById("eq").value="";
+if(my_src == t_src){
+alert("weldone!");
+}
+
+init();
+}
+}
+
+init();
+</script>
+</body>
+</html>
